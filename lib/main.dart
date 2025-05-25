@@ -153,7 +153,113 @@ class _ProfileCardScreenState extends State<ProfileCardScreen> with TickerProvid
                       ),
                       Divider(color: Colors.grey,),
                       SizedBox(height: 10,),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 170,
+                              child: ListView.builder(
+                                itemCount: 6,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
 
+                                  if (index == 0) {
+
+                                    return Container(
+                                      margin: EdgeInsets.only(right: 8),
+                                      width: storyWidth,
+
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.grey[300],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: Stack(
+                                              clipBehavior: Clip.none,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(10),
+                                                    topRight: Radius.circular(10),
+                                                  ),
+                                                  child: Image.asset(
+                                                    "assets/rimon.jpeg",
+                                                    fit: BoxFit.cover,
+                                                    width: double.infinity,
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                  bottom: -20,
+                                                  left: (storyWidth / 2) - 16,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(color: Colors.white, width: 2),
+                                                      color: Colors.blue,
+                                                    ),
+                                                    child: Icon(Icons.add, color: Colors.white, size: 24),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(height: 24),
+                                          Text(
+                                            "Create Story",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(fontSize: screenWidth > 600 ? 14 : 12,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 8),
+                                        ],
+                                      ),
+                                    );
+                                  } else {
+                                    return Container(
+                                      margin: EdgeInsets.only(right: 8),
+                                      width: storyWidth,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.grey,
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Image.asset(
+                                              "assets/rimon.jpeg",
+                                              fit: BoxFit.cover,
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 7,
+                                            left: 7,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(color: Colors.blue, width: 2),
+                                              ),
+                                              child: CircleAvatar(
+                                                radius: 18,
+                                                backgroundImage: AssetImage("assets/rimon.jpeg"),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                       Divider(color: Colors.grey,),
 
                     ],
