@@ -105,9 +105,67 @@ class _ProfileCardScreenState extends State<ProfileCardScreen> with TickerProvid
                   )
                 ],
               ),
-
+              bottom: TabBar(
+                indicatorColor: Colors.blue,
+                controller: tabController,
+                tabs: List.generate(
+                  tabIcon.length,
+                      (index) => Tab(icon: buildTabIcon(tabIcon[index], index, iconSize)),
+                ),
+              ),
             ),
+            body: TabBarView(
+              controller: tabController,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: radius,
+                            backgroundImage: AssetImage('assets/rimon.jpeg'),
+                          ),
+                          SizedBox(width: 8),
+                          Expanded(
+                            child: Container(
+                              height: 40,
+                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: Colors.black),
+                              ),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "What's on your mind?",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Icon(Icons.image_sharp, color: Colors.yellow),
+                        ],
+                      ),
+                      Divider(color: Colors.grey,),
+                      SizedBox(height: 10,),
 
+                      Divider(color: Colors.grey,),
+
+                    ],
+                  ),
+                ),
+                Center(child: Text("Friends")),
+                Center(child: Text("Watch")),
+                Center(child: Text("Groups")),
+                Center(child: Text("Gaming")),
+                Center(child: Text("Menu")),
+              ],
+            ),
           ),
         ),
       ),
